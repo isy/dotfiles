@@ -1,5 +1,14 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
+
+# Peco ヒストリー検索
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
  
 # 補完機能有効化
 autoload -Uz compinit
@@ -41,6 +50,7 @@ alias ll='ls -l'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias g='git'
  
 alias grep='grep --color=auto'
  
@@ -75,7 +85,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 
 # zplug
-source ~/.zplug/init.zsh
+source $ZPLUG_HOME/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # theme
 zplug "mafredri/zsh-async"

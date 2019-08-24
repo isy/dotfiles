@@ -1,0 +1,9 @@
+[user]
+	name = Hironori Akaishi
+	email = ah.gm3622@gmail.com
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	df = diff

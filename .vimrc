@@ -21,4 +21,3 @@ set title
 set number
 " シンタックスハイライト
 syntax on
-
